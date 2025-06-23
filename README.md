@@ -23,3 +23,5 @@ jsp多重编码混淆学习可参考以下两位大佬的文章：
 https://y4tacker.github.io/2022/11/27/year/2022/11/%E6%B5%85%E8%B0%88JspWebshell%E4%B9%8B%E7%BC%96%E7%A0%81/
 
 https://cloud.tencent.cn/developer/article/2382449
+
+2025.6.23--更新冰蝎3.0webshell
