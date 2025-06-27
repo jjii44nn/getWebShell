@@ -6,7 +6,7 @@
 
 ## 介绍
 
-本工具可以生成基于tomcat解析器的jsp类型的webshell使用代码层混淆和双重编码混淆绕过防护工具检测，可免杀绝大多数静态查杀和部分动态查杀。
+本工具可以生成基于tomcat解析器的jsp类型的webshell使用代码层混淆和双重编码混淆绕过防护工具检测，可免杀绝大多数静态查杀和部分动态查杀，目前测试来看有较好的免杀效果。(经测试该工具生成的免杀webshell适用于tomcat和jetty，其他容器和jsp依赖还需进行测试验证)
 
 ## 使用方法
 
@@ -24,4 +24,6 @@ https://y4tacker.github.io/2022/11/27/year/2022/11/%E6%B5%85%E8%B0%88JspWebshell
 
 https://cloud.tencent.cn/developer/article/2382449
 
-2025.6.23--更新冰蝎3.0webshell
+2025.6.23--新增冰蝎3.0默认webshell
+
+2025.6.27--新增冰蝎4.0default_xor传输协议webshell
