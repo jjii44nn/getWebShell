@@ -29,3 +29,6 @@ https://cloud.tencent.cn/developer/article/2382449
 2025.6.27--新增冰蝎4.0default_xor传输协议webshell
 
 2025.7.3--新增冰蝎4.0default_xor_base64传输协议webshell
+
+2025.7.4--新增冰蝎4.0default_aes传输协议webshell
+
