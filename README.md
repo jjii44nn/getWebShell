@@ -35,3 +35,5 @@ https://cloud.tencent.cn/developer/article/2382449
 2025.7.7--新增冰蝎4.0default_image传输协议webshell
 
 2025.7.7--新增冰蝎4.0default_json传输协议webshell
+
+2025.7.8--新增冰蝎4.0aes_with_magic传输协议webshell
